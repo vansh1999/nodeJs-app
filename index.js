@@ -2,6 +2,12 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const expressEdge = require('express-edge')
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+
+const Post = require('./database/models/post')
+mongoose.connect('mongodb://localhost/udemy_node')
+
 
 
 app.use(express.static('public'))
@@ -9,6 +15,8 @@ app.use(expressEdge)
 
 app.set('views' , `${__dirname}/views`)
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended : true}))
 
 
 app.get('/' , (req, res) => {
@@ -32,15 +40,47 @@ app.get('/about' , (req, res) => {
 })
 
 
-app.get('/post' , (req, res) => {
+app.get('/posts' , async (req, res) => {
 
 
-    res.render('post')
+    const posts = await Post.find({})
+    
+    console.log(posts)
+    res.render('post' , {
+        posts
+    })
     // console.log(path.resolve(__dirname , 'index.html'));
     
 
 
 })
+
+app.get('/posts/new' , (req, res) => {
+
+
+    res.render('create')
+    // console.log(path.resolve(__dirname , 'index.html'));
+    
+
+
+})
+
+app.post('/posts/store', (req,res) =>{
+
+
+    Post.create(req.body , (error , post) =>{
+
+        res.redirect('/posts')
+    } )
+
+    // console.log(req.body);
+    
+    
+
+})
+
+
+
 
 app.get('/contact' , (req, res) => {
 

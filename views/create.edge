@@ -1,0 +1,121 @@
+@layout('layouts.app')
+
+@section('content')
+
+<!-- Header -->
+<header class="masthead">
+        <div class="container d-flex h-100 align-items-center">
+          <div class="mx-auto text-center">
+            
+            {{--    --}}
+
+            <div class = "container">
+
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                    
+                            <form action="/posts/store" method="POST">
+                    
+                                <div class="control-group">
+                                    <div class="form group floating-label-form-group controls">
+                    
+                                        <label for="">Title</label>
+                                        <input type="text" name = "title" class="form-control" required>
+                                    </div>
+                                </div>
+                    
+                    
+                                <div class="control-group">
+                                        <div class="form group floating-label-form-group controls">
+                        
+                                            <label for="">Description</label>
+                                            <input type="text" name = "des" class="form-control" required>
+                                        </div>
+                                    </div>
+                    
+                    
+                    
+                                    <div class="control-group">
+                                            <div class="form group floating-label-form-group controls">
+                            
+                                                <label for="">Content</label>
+                                                <textarea name="content" id="" cols="30" rows="10" class="form-control" required></textarea>
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="form-group text-center">
+
+                                            <button class="btn btn-primary" name="post-button">
+                                                Add Post
+                                            </button>
+                                        </div>
+                            </form>
+                    
+                        </div>
+                    </div>
+                    
+                    
+                    </div>
+                    
+
+
+            {{--    --}}
+            
+
+
+
+          </div>
+        </div>
+      </header> 
+
+
+
+{{--  
+<div class = "container">
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+
+        <form action="">
+
+            <div class="control-group">
+                <div class="form group floating-label-form-group controls">
+
+                    <label for="">Title</label>
+                    <input type="text" name = "title" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                    <div class="form group floating-label-form-group controls">
+    
+                        <label for="">Description</label>
+                        <input type="text" name = "des" class="form-control">
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
+                        <div class="form group floating-label-form-group controls">
+        
+                            <label for="">Content</label>
+                            <textarea name="content" id="" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                    </div>
+        </form>
+
+    </div>
+</div>
+
+
+</div>
+
+<br>
+<br>
+<br>  --}}
+
+@endsection
